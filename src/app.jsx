@@ -1,7 +1,8 @@
 import React, { use, useEffect, useRef, useState } from 'react';
 import { createRoot } from "react-dom/client";
 import { APIProvider, Map, AdvancedMarker } from '@vis.gl/react-google-maps';
-
+import Polyline from './component/polyline';
+import Polygon from './component/polygon';
 const renderCustomPin = (idx) => {
     return (
         <>
@@ -13,7 +14,7 @@ const renderCustomPin = (idx) => {
 };
 
 const Markers = ({ locations }) => {
-    console.log('markers', locations);
+    // console.log('markers', locations);
 
     return locations ?
         locations.map((location, index) => {
@@ -32,7 +33,7 @@ const Markers = ({ locations }) => {
 const App = () => {
     const [locations, setLocations] = useState([]);
     const addMarker = (position) => {
-        console.log(position)
+        // console.log(position)
         setLocations(curLoc => [
             ...curLoc,
             {
@@ -48,7 +49,7 @@ const App = () => {
                 defaultCenter={{ lat: 35.68135179041109, lng: 139.76710869501952 }}
                 mapId="e8188406bd40e24b10aa1128"
                 onCameraChanged={ev => {
-                    console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
+                    // console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
                 }}
                 onClick={ev => {
                     console.log('map clicked:', ev);
@@ -56,6 +57,8 @@ const App = () => {
                 }}
             >
                 <Markers locations={locations} />
+                {/* <Polyline locations={locations}/> */}
+                <Polygon locations={locations}/>
             </Map>
         </APIProvider>
     )
