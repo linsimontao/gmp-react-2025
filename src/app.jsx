@@ -14,8 +14,6 @@ const Markers = ({ locations }) => {
 }
 
 const App = () => {
-    // const marker = useMapsLibrary('marker'); // Ensure the marker library is loaded
-
     const [locations, setLocations] = useState([]);
     const addMarker = (position) => {
         console.log(position)
