@@ -2,15 +2,31 @@ import React, { use, useEffect, useRef, useState } from 'react';
 import { createRoot } from "react-dom/client";
 import { APIProvider, Map, AdvancedMarker } from '@vis.gl/react-google-maps';
 
+const renderCustomPin = (idx) => {
+    return (
+        <>
+            <div className="tag">
+                {idx}
+            </div>
+        </>
+    );
+};
+
 const Markers = ({ locations }) => {
     console.log('markers', locations);
 
     return locations ?
-        locations.map((location, index) => (
-            <AdvancedMarker
-                key={index}
-                position={location.position}
-            />)) : <></>;
+        locations.map((location, index) => {
+            const tag = document.createElement('div');
+            tag.className = 'tag';
+            tag.textContent = index.toString();
+            return (
+                <AdvancedMarker
+                    key={index}
+                    position={location.position}>
+                    {renderCustomPin(index)}
+                </AdvancedMarker>)
+        }) : <></>;
 }
 
 const App = () => {
