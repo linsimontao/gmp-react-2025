@@ -8,7 +8,10 @@ const App = () => {
             <Map
                 defaultZoom={13}
                 defaultCenter={{ lat: 35.68135179041109, lng: 139.76710869501952 }}
-                // mapId="e8188406bd40e24b10aa1128" 
+                mapId="e8188406bd40e24b10aa1128"
+                onCameraChanged={ev =>
+                    console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
+                }
             />
         </APIProvider>
     )
