@@ -2,10 +2,13 @@
     "name": "gmp-react-2025",
     "type": "module",
     "dependencies": {
+        "@loaders.gl/csv": "^4.3.4",
         "@vis.gl/react-google-maps": "latest",
+        "deck.gl": "^9.1.14",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "vite": "^5.0.4"
+        "vite": "^5.0.4",
+        "wkt": "^0.1.1"
     },
     "scripts": {
         "start": "vite",
